@@ -1,0 +1,21 @@
+# data and cache files
+**/*.egg-info
+**/__pycache__
+**/cache
+**/data
+**/experiment_configs
+**/experiment_outputs
+**/experiments
+**/figures
+**/logs
+**/notes
+**/outputs
+**/renders
+**/test_inputs
+**/test_outputs
+**/tmp_outputs
+**/wandb
+
+
+# Platform-dependent files
+*.DS_Store

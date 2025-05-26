@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIREN: Semantic, Initialization-Free Registration of Multi-Robot
+    Gaussian Splatting Maps</title>
+
+  <!--  =====  FONTS & ICONS  =====  -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="icon" href="./static/icon.png" />
+
+  <!--  =====  CSS  =====  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+  <style>
+    /* --- GLOBAL --- */
+    body {
+      background: #fff;
+      font-family: "Noto Sans", sans-serif;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    section {
+      padding: 2.5rem 0;
+    }
+
+    /* --- SECTION COLORS --- */
+    .section-gray {
+      background: #f7f7f7;
+    }
+
+    /* --- TYPOGRAPHY & LINKS --- */
+    .task-title {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .publication-authors {
+      margin-bottom: 1rem;
+    }
+
+    /* space below authors */
+    .publication-authors a {
+      color: #3273dc;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .publication-authors a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- HERO & SPACING TWEAKS --- */
+    .hero {
+      padding-bottom: 0.5rem;
+    }
+
+    /* tighter gap above overview */
+    #overview.section {
+      padding-top: 0.75rem;
+    }
+
+    /* tighter gap below hero */
+    .publication-links {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* gap between authors/icons & icons/logo */
+    figure.lab-logo {
+      margin-top: 1.5rem;
+    }
+
+    /* gap between icons and Princeton logo */
+    /* #sim-robot.section{padding-bottom:0.1rem;} gap above simulation section */
+    #bibtex.section- {
+      padding-top: 0rem;
+    }
+
+    /* gap above BibTeX section */
+
+    /* --- SLICK ARROWS --- */
+    .slick-prev:before,
+    .slick-next:before {
+      color: #3273dc;
+      font-size: 32px;
+    }
+
+    /* --- THUMBNAILS --- */
+    .video-thumb {
+      cursor: pointer;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 0 8px;
+    }
+
+    .video-thumb video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* --- STAND‑ALONE VIDEOS --- */
+    .overview-video,
+    .pipeline-video,
+    .sim-video {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: none;
+      pointer-events: none;
+    }
+
+    /* --- LAYOUT HELPERS --- */
+    .task-block {
+      margin-bottom: 3rem;
+    }
+
+    .task-carousel {
+      margin-top: 1rem;
+    }
+
+    /* --- CONTENT WIDTH CONSISTENCY --- */
+    .content-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* --- PDF EMBED --- */
+    .pdf-container {
+      margin-top: 1.5rem;
+    }
+
+    .pdf-container object {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    /* --- REAL EXP IMG --- */
+    /* --- .real-exp-img{width:100%;height:auto;max-width:100%;} --- */
+    /* --- LINK COLOR (lighter blue, closer to default hyperlinks) --- */
+
+    .publication-authors a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- HERO ↔ OVERVIEW GAP (shrink) --- */
+    .hero {
+      padding-bottom: 0rem;
+    }
+
+    /* was 0.5rem */
+    #overview.section {
+      padding-top: 0rem;
+    }
+
+    /* was 0.75rem */
+
+    /* --- REAL-ROBOT ↔ SIMULATION GAP (shrink) --- */
+    #real-robot.section {
+      padding-top: 2.5rem;
+    }
+
+    /* default Bulma ≈2.5rem */
+    #real-robot.section {
+      padding-bottom: 2.5rem;
+    }
+
+    /* default Bulma ≈2.5rem */
+    #sim-robot.section {
+      padding-top: 2.5rem;
+    }
+
+    /* default Bulma ≈2.5rem */
+
+    /* --- SIMULATION ↔ BIBTEX GAP (shrink) --- */
+    #BibTeX.section {
+      padding-top: 0.1rem;
+    }
+
+    /* tighten above BibTeX */
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HERO with title & authors ===== -->
+  <section class="hero section">
+    <div class="hero-body">
+      <div class="container is-max-widescreen has-text-centered">
+        <h1 class="title is-2 publication-title">SIREN: Semantic, Initialization-Free Registration of Multi-Robot
+          Gaussian Splatting Maps</h1>
+
+        <!-- ===== AUTHORS (three rows, no underscores) ===== -->
+        <div class="is-size-5 publication-authors">
+          <div>
+            <span class="author-block"><a href="/">Ola&nbsp;Shorinwa</a></span>,
+            <span class="author-block"><a href="https://web.stanford.edu/~jksun/">Jiankai&nbsp;Sun</a></span>,
+            <span class="author-block"><a href="https://web.stanford.edu/~schwager/">Mac&nbsp;Schwager</a></span>,
+            <span class="author-block"><a
+                href="https://irom-lab.princeton.edu/majumdar/">Anirudha&nbsp;Majumdar</a></span>
+          </div>
+        </div>
+
+        <!-- ===== RESOURCE ICONS ===== -->
+        <div class="publication-links">
+          <a href="https://arxiv.org/abs/2502.06519" class="external-link button is-normal is-rounded is-dark"
+            target="_blank" rel="noopener">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+          </a>
+          <a href="https://arxiv.org/abs/2502.06519" class="external-link button is-normal is-rounded is-dark"
+            target="_blank" rel="noopener">
+            <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+          </a>
+          <a href="https://github.com/" class="external-link button is-normal is-rounded is-dark" target="_blank"
+            rel="noopener">
+            <span class="icon"><i class="fab fa-github"></i></span><span>Code (Coming Soon)</span>
+          </a>
+          <!-- <a href="https://youtu.be/" class="external-link button is-normal is-rounded is-dark"
+            target="_blank" rel="noopener">
+            <span class="icon"><i class="fab fa-youtube"></i></span><span>Video</span>
+          </a> -->
+        </div>
+
+        <!-- ===== LAB LOGO ===== -->
+        <!-- <figure class="image is-inline-block lab-logo">
+          <img src="static/lab.png" alt="Lab logo" style="max-width:600px;">
+        </figure> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OVERVIEW ===== -->
+  <section id="overview" class="section">
+    <div class="container is-max-desktop content-container has-text-centered">
+      <video class="overview-video" autoplay loop muted playsinline poster="static/thumbnails/teaser.jpg">
+        <source src="static/videos/teaser.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p style="margin-top:1rem;">We introduce <strong>SIREN</strong>,
+        a semantic, initialization-free registration algorithm for
+        multi-robot Gaussian Splatting (GSplat) maps.
+        SIREN enables robust registration of multi-robot GSplat maps, with no access to
+        camera poses,
+        images, and inter-map relative poses, via semantics-grounded optimization centered on feature-rich regions.</p>
+    </div>
+  </section>
+
+  <!-- ===== ABSTRACT ===== -->
+  <section id="abstract" class="section">
+    <div class="container is-max-desktop content-container">
+      <h2 class="title is-3 has-text-centered">Abstract</h2>
+      <p>
+        We present SIREN for registration of multi-robot Gaussian Splatting (GSplat) maps,
+        with <em>zero</em> access to camera poses, images, and inter-map transforms for
+        initialization or fusion of local submaps. To realize these capabilities,
+        SIREN harnesses the versatility and robustness of semantics in three critical ways
+        to derive a rigorous registration pipeline for multi-robot GSplat maps.
+        First, SIREN utilizes semantics to identify feature-rich regions of the local maps
+        where the registration problem is better posed, eliminating the need for any
+        initialization which is generally required in prior work. Second, SIREN identifies
+        candidate correspondences between Gaussians in the local maps using robust semantic
+        features, constituting the foundation for robust geometric optimization, coarsely
+        aligning 3D Gaussian primitives extracted from the local maps. Third, this key step
+        enables subsequent photometric refinement of the transformation between the submaps,
+        where SIREN leverages novel-view synthesis in GSplat maps along with a semantics-based
+        image filter to compute a high-accuracy non-rigid transformation for the generation
+        of a high-fidelity fused map. We demonstrate the superior performance of SIREN compared
+        to competing baselines across a range of real-world datasets, and in particular,
+        across the most widely-used robot hardware platforms, including a manipulator, drone,
+        and quadruped. In our experiments, SIREN achieves about $90$x smaller rotation errors,
+        300 smaller translation errors, and 44x smaller scale errors in the most challenging
+        scenes, where competing methods struggle.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== PIPELINE ===== -->
+  <section id="pipeline" class="section">
+    <div class="container is-max-desktop content-container">
+      <h2 class="title is-3 has-text-centered">SIREN: Robust Registration Pipeline</h2>
+      <p>
+        At its core, SIREN leverages open-vocabulary semantics within a principled optimization-based framework to
+        enable the robust registration of multi-robot GSplat maps, via: (a) <em>Semantic feature extraction and
+          matching</em>,
+        (b) <em>Coarse Gaussian-to-Gaussian geometric registration</em>, and (c) <em>Fine photometric registration</em>,
+        illustrated in
+        the figure.
+
+        In the first step, SIREN identifies corresponding pairs of Gaussians in a pair of GSplat maps via semantic
+        matching.
+        Subsequently, SIREN solves a Gaussian-to-Gaussian optimization problem to compute the optimal transformation
+        aligning the pair of multi-robot maps with a robust objective function to guard against the impacts of outliers.
+        Finally, SIREN harnesses the novel-view synthesis capabilities of Gaussian Splatting for fine registration via a
+        structure-from-motion-based approach.
+      </p>
+      <br>
+      <video class="overview-video" preload="metadata" autoplay loop muted playsinline
+        poster="static/thumbnails/siren_pipeline.jpg">
+        <source src="static/videos/siren_pipeline.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- <video id="summary-video" class="shadow" controls preload="metadata" width="100%"
+        poster="static/thumbnails/siren_pipeline.jpg">
+        <source src="static/videos/siren_pipeline.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video> -->
+    </div>
+  </section>
+
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
+    $(function () {
+      // Init carousels (only those still using .task-carousel wrappers)
+      $('.task-carousel').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: true,
+        dots: false,
+        lazyLoad: 'ondemand',
+        touchMove: true,
+        responsive: [
+          { breakpoint: 1024, settings: { slidesToShow: 3 } },
+          { breakpoint: 768, settings: { slidesToShow: 2 } },
+          { breakpoint: 480, settings: { slidesToShow: 1 } }
+        ]
+      });
+
+      // Horizontal track‑pad scroll → carousel navigation; let vertical scroll bubble up
+      $('.task-carousel').on('wheel', function (e) {
+        const deltaX = e.originalEvent.deltaX;
+        const deltaY = e.originalEvent.deltaY;
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          e.preventDefault();
+          $(this).slick(deltaX < 0 ? 'slickPrev' : 'slickNext');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
