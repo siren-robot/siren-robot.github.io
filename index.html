@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link rel="icon" href="./static/icon.png" />
+  <link rel="icon" href="./static/favicon.svg" />
 
   <!--  =====  CSS  =====  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
@@ -121,7 +121,7 @@
     }
 
     /* --- LAYOUT HELPERS --- */
-    .task-block {
+    .map-block {
       margin-bottom: 3rem;
     }
 
@@ -316,7 +316,172 @@
         Your browser does not support the video tag.
       </video> -->
     </div>
+
+    <!-- ===== SEMANTICS ===== -->
+    <div class="container is-max-desktop content-container" style="padding-top: 2rem;">
+      <!-- ===== Map 1: Semantics ===== -->
+      <div class="map-block" id="map-1" style="margin-bottom: 0rem;">
+        <h3 class=" title is-4 task-title">Semantics Visualization: Drone Mapping</h3>
+        <div class="task-carousel">
+          <!-- Four videos with poster extracted via Python script -->
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 1.0;" autoplay
+              loop muted playsinline poster="static/thumbnails/drone_semantics_rgb.jpg" preload="metadata">
+              <source src="static/videos/drone_semantics_rgb.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 1.0;" autoplay
+              loop muted playsinline poster="static/thumbnails/drone_semantics_whiteboard.jpg" preload="metadata">
+              <source src="static/videos/drone_semantics_whiteboard.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 1.0;" autoplay
+              loop muted playsinline poster="static/thumbnails/drone_semantics_beachball.jpg" preload="metadata">
+              <source src="static/videos/drone_semantics_beachball.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 1.0;" autoplay
+              loop muted playsinline poster="static/thumbnails/drone_semantics_microwave.jpg" preload="metadata">
+              <source src="static/videos/drone_semantics_microwave.mp4" type="video/mp4" />
+            </video></div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- ===== EXPERIMENTS ===== -->
+  <section id="experiments" class="section">
+    <div class="container is-max-desktop content-container">
+      <h2 class="title is-3 has-text-centered">Experiments</h2>
+      <p class="has-text-justified">
+        We compare SIREN to state-of-the-art baselines: GaussReg, PhotoReg, and RANSAC and ICP methods,
+        using the rotation, translation, and scale error, and photometric scores
+        (PSNR, SSIM, LPIPS). We evaluate each method on standard benchmark dataset and real- world robot datasets
+        and discuss the results in our paper.
+      </p>
+      <br>
+
+      <!-- ===== Map 1 ===== -->
+      <div class="map-block" id="map-1">
+        <h3 class="title is-4 task-title">Drone Mapping</h3>
+        <div class="task-carousel">
+          <!-- Four videos with poster extracted via Python script -->
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/drone_gt.jpg" preload="metadata">
+              <source src="static/videos/drone_gt.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/drone_siren.jpg" preload="metadata">
+              <source src="static/videos/drone_siren.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/drone_gaussreg.jpg" preload="metadata">
+              <source src="static/videos/drone_gaussreg.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/drone_photoreg.jpg" preload="metadata">
+              <source src="static/videos/drone_photoreg.mp4" type="video/mp4" />
+            </video></div>
+        </div>
+      </div>
+
+      <!-- ===== Map 2 ===== -->
+      <div class="map-block" id="map-2">
+        <h3 class="title is-4 task-title">Playroom Scene</h3>
+        <div class="task-carousel">
+          <!-- Eight videos -->
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.2;" autoplay
+              loop muted playsinline poster="static/thumbnails/playroom_gt.jpg" preload="metadata">
+              <source src="static/videos/playroom_gt.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.2;" autoplay
+              loop muted playsinline poster="static/thumbnails/playroom_siren.jpg" preload="metadata">
+              <source src="static/videos/playroom_siren.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.2;" autoplay
+              loop muted playsinline poster="static/thumbnails/playroom_gaussreg.jpg" preload="metadata">
+              <source src="static/videos/playroom_gaussreg.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.2;" autoplay
+              loop muted playsinline poster="static/thumbnails/playroom_photoreg.jpg" preload="metadata">
+              <source src="static/videos/playroom_photoreg.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.2;" autoplay
+              loop muted playsinline poster="static/thumbnails/playroom_colored_icp.jpg" preload="metadata">
+              <source src="static/videos/playroom_colored_icp.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.2;" autoplay
+              loop muted playsinline poster="static/thumbnails/playroom_icp.jpg" preload="metadata">
+              <source src="static/videos/playroom_icp.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.2;" autoplay
+              loop muted playsinline poster="static/thumbnails/playroom_fgr.jpg" preload="metadata">
+              <source src="static/videos/playroom_fgr.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.2;" autoplay
+              loop muted playsinline poster="static/thumbnails/playroom_ransac.jpg" preload="metadata">
+              <source src="static/videos/playroom_ransac.mp4" type="video/mp4" />
+            </video></div>
+        </div>
+      </div>
+
+      <!-- ===== Map 3 ===== -->
+      <div class="map-block" id="map-3">
+        <h3 class="title is-4 task-title">Outdoor Scene</h3>
+        <div class="task-carousel">
+          <!-- Eight videos -->
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/truck_gt.jpg" preload="metadata">
+              <source src="static/videos/truck_gt.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/truck_siren.jpg" preload="metadata">
+              <source src="static/videos/truck_siren.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/truck_gaussreg.jpg" preload="metadata">
+              <source src="static/videos/truck_gaussreg.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/truck_photoreg.jpg" preload="metadata">
+              <source src="static/videos/truck_photoreg.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/truck_colored_icp.jpg" preload="metadata">
+              <source src="static/videos/truck_colored_icp.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/truck_icp.jpg" preload="metadata">
+              <source src="static/videos/truck_icp.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/truck_fgr.jpg" preload="metadata">
+              <source src="static/videos/truck_fgr.mp4" type="video/mp4" />
+            </video></div>
+          <div class="video-thumb"><video class="thumb-video" controls onloadstart="this.playbackRate = 0.5;" autoplay
+              loop muted playsinline poster="static/thumbnails/truck_ransac.jpg" preload="metadata">
+              <source src="static/videos/truck_ransac.mp4" type="video/mp4" />
+            </video></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{shorinwa2025siren,
+        title={SIREN: Semantic, Initialization-Free Registration of Multi-Robot Gaussian Splatting Maps},
+        author={Shorinwa, Ola and Sun, Jiankai and Schwager, Mac and Majumdar, Anirudha},
+        journal={arXiv preprint arXiv:2502.06519},
+        year={2025}
+        url={https://arxiv.org/abs/2505.06519}, 
+  }</code></pre>
+    </div>
+  </section>
+  <br>
+  <center class="is-size-10">
+    The website design was adapted from <a href="https://nerfies.github.io" class="external-link"><span
+        class="dnerf">Nerfies</span></a>.
+  </center>
+  <br>
 
 
   <!-- ===== SCRIPTS ===== -->

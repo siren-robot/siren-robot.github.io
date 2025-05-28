@@ -1,3 +1,4 @@
+# %%
 """
 Save as make_thumbs.py and run inside your project root:
 
@@ -12,19 +13,26 @@ videos_dir = pathlib.Path("static/videos")
 thumbs_dir = pathlib.Path("static/thumbnails")
 thumbs_dir.mkdir(parents=True, exist_ok=True)
 
+# option to overwrite existing thumbnails
+overwrite_existing_thumbnails: bool = False
+
 for mp4 in videos_dir.glob("*.mp4"):
     jpg = thumbs_dir / (mp4.stem + ".jpg")
-    if jpg.exists():
+    if jpg.exists() and not overwrite_existing_thumbnails:
         continue
     # Extract the very first frame (at 0.1 s for reliability)
     cmd = [
         "ffmpeg", "-loglevel", "error",
         "-i", str(mp4),
-        "-ss", "0.1",  # seek
+        "-ss", "1", #"0.1",  # seek
         "-vframes", "1",
         "-q:v", "2",   # quality 2 (~95%)
         str(jpg)
     ]
+    if overwrite_existing_thumbnails:
+        cmd.append("-y")
     print("→", jpg.name)
     if subprocess.call(cmd):
         print("  ffmpeg failed!", file=sys.stderr)
+
+# %%
