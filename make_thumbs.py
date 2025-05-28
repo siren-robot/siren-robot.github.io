@@ -24,7 +24,7 @@ for mp4 in videos_dir.glob("*.mp4"):
     cmd = [
         "ffmpeg", "-loglevel", "error",
         "-i", str(mp4),
-        "-ss", "1", #"0.1",  # seek
+        "-ss", "33", #"0.1",  # seek
         "-vframes", "1",
         "-q:v", "2",   # quality 2 (~95%)
         str(jpg)
